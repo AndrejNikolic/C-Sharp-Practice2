@@ -76,11 +76,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>StudentiDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="TestLinq.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TestLinq.dbml</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -112,14 +107,6 @@
     </None>
     <None Include="StudentiDataSet.xss">
       <DependentUpon>StudentiDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="TestLinq.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>TestLinq.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="TestLinq.dbml.layout">
-      <DependentUpon>TestLinq.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

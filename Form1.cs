@@ -39,43 +39,26 @@ namespace DomaciZadatak7
                 dataGridView1.DataSource = dt;
             }
 
-            //TestLinqDataContext data = new TestLinqDataContext();
-
-            //dataGridView1.DataSource = from student in data.Studentis select student;
-
-            //dataGridView1.EndEdit();
-
         }
 
         private void button_add_Click(object sender, EventArgs e)
         {
-            //string query = "INSERT INTO Studenti VALUES (@Ime, @Prezime, @DatumRodjenja, @Pol, @Student)";
+            string query = "INSERT INTO Studenti VALUES (@Ime, @Prezime, @DatumRodjenja, @Pol, @Student)";
 
-            //using (connection = new SqlConnection(connectString))
-            //using (SqlCommand command = new SqlCommand(query, connection))
-            //{
-            //    connection.Open();
+            using (connection = new SqlConnection(connectString))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                connection.Open();
 
-            //    command.Parameters.AddWithValue("Ime", textBox_ime.Text);
-            //    command.Parameters.AddWithValue("Prezime", textBox_prezime.Text);
-            //    command.Parameters.AddWithValue("DatumRodjenja", dateTimePicker1.Value.Date);
-            //    command.Parameters.AddWithValue("Pol", getPol());
-            //    command.Parameters.AddWithValue("Student", ifStudent());
+                command.Parameters.AddWithValue("Ime", textBox_ime.Text);
+                command.Parameters.AddWithValue("Prezime", textBox_prezime.Text);
+                command.Parameters.AddWithValue("DatumRodjenja", dateTimePicker1.Value.Date);
+                command.Parameters.AddWithValue("Pol", getPol());
+                command.Parameters.AddWithValue("Student", ifStudent());
 
 
-            //    command.ExecuteNonQuery();
-            //}
-
-            var d = new TestLinqDataContext();
-            var c = new Studenti();
-            c.Ime = textBox_ime.Text;
-            c.Prezime = textBox_prezime.Text;
-            c.Datum_Rodjenja = dateTimePicker1.Value.Date;
-            c.Pol = getPol();
-            c.Student = ifStudent();
-
-            d.Studentis.InsertOnSubmit(c);
-            d.SubmitChanges();
+                command.ExecuteNonQuery();
+            }
 
             Run();
         }
